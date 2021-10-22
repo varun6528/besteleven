@@ -136,7 +136,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                                    onchange="computeScore(this.id,this.value, 'Wicks')">
                         </div>
                     </td>
-                    <td class="text-center" th:id="|player${player.id}Score|"></td>
+                    <td class="text-center" th:id="|player${player.id}Score|" th:text="${matchSummary.scoreCards[__${itr.index}__].score}"></td>
                 </tr>
             </div>
             </tbody>
