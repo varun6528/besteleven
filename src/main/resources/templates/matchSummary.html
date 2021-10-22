@@ -34,7 +34,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                 style="background-color:#80a83f; left:auto; right:auto; margin-right:0">
                 <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Rules</button></li>
                 <li><a class="dropdown-item" th:href="@{/changePassword}">Change Password</a></li>
-                <li><a class="dropdown-item" href="@{/logout}">Logout</a></li>
+                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -81,6 +81,11 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
             </div>
         </div>
     </div>
+        <div th:if="${matchSummary.id} != null">
+            <select hidden th:field="*{id}">
+                <option th:value="${matchSummary.id}" selected></option>
+            </select>
+        </div>
     <div class="d-flex justify-content-center my-2">
         <div class="mx-3 fs-5 fw-bold">
             Winner :

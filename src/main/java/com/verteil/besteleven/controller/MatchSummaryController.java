@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,11 +46,16 @@ public class MatchSummaryController {
         var firstTeam = teamService.findByCountry(match.getFirstTeam());
         var secondTeam = teamService.findByCountry(match.getSecondTeam());
         var players = fetchAllPlayers(firstTeam, secondTeam);
+        var matchSummary = new MatchSummary();
+        var savedSummary = matchSummaryService.findByMatchId(matchId);
+        if (!ObjectUtils.isEmpty(savedSummary)) {
+            matchSummary = savedSummary;
+        }
         model.addAttribute("match", match);
         model.addAttribute("firstTeam", firstTeam);
         model.addAttribute("secondTeam", secondTeam);
         model.addAttribute("allPlayers", players);
-        model.addAttribute("matchSummary", new MatchSummary());
+        model.addAttribute("matchSummary", matchSummary);
         return "matchSummary";
     }
 
