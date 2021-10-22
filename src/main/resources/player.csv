@@ -1,0 +1,259 @@
+id,name,type,country
+1,Eoin Morgan,BATTER,ENG
+2,Moeen Ali,ALL_ROUNDER,ENG
+3,Jonny Bairstow,WICKET_KEEPER,ENG
+4,Sam Billings,BATTER,ENG
+5,Jos Buttler,WICKET_KEEPER,ENG
+6,Tom Curran,BOWLER,ENG
+7,Chris Jordan,BOWLER,ENG
+8,Liam Livingstone,BATTER,ENG
+9,Dawid Malan,BATTER,ENG
+10,Tymal Mills,BOWLER,ENG
+11,Adil Rashid,BOWLER,ENG
+12,Jason Roy,BATTER,ENG
+13,David Willey,ALL_ROUNDER,ENG
+14,Chris Woakes,ALL_ROUNDER,ENG
+15,Mark Wood,BOWLER,ENG
+
+16,Virat Kohli,BATTER,IND
+17,Rohit Sharma,BATTER,IND
+18,KL Rahul,BATTER,IND
+19,Suryakumar Yadav,BATTER,IND
+20,Rishabh Pant,WICKET_KEEPER,IND
+21,Ishan Kishan,WICKET_KEEPER,IND
+22,Hardik Pandya,ALL_ROUNDER,IND
+23,Ravindra Jadeja,ALL_ROUNDER,IND
+24,Rahul Chahar,ALL_ROUNDER,IND
+25,Ravichandran Ashwin,ALL_ROUNDER,IND
+26,Axar Patel,ALL_ROUNDER,IND
+27,Varun Chakravarthy,BOWLER,IND
+28,Jasprit Bumrah,BOWLER,IND
+29,Bhuvneshwar Kumar,BOWLER,IND
+30,Mohammed Shami,BOWLER,IND
+
+31,Aaron Finch,BATTER,AUZ
+32,Ashton Agar,BATTER,AUZ
+33,Pat Cummins,BOWLER,AUZ
+34,Josh Hazlewood,BOWLER,AUZ
+35,Josh Inglis,BATTER,AUZ
+36,Mitchell Marsh,BATTER,AUZ
+37,Glenn Maxwell,BATTER,AUZ
+38,Kane Richardson,BATTER,AUZ
+39,Steve Smith,BATTER,AUZ
+40,Mitchell Starc,BOWLER,AUZ
+41,Marcus Stoinis,ALL_ROUNDER,AUZ
+42,Mitchell Swepson,BATTER,AUZ
+43,Matthew Wade,WICKET_KEEPER,AUZ
+44,David Warner,BATTER,AUZ
+45,Adam Zampa,BOWLER,AUZ
+
+46,Kane Williamson,BATTER,NZ
+47,Todd Astle,BATTER,NZ
+48,Trent Boult,BOWLER,NZ
+49,Mark Chapman,BATTER,NZ
+50,Devon Conway,BATTER,NZ
+51,Lockie Ferguson,BOWLER,NZ
+52,Martin Guptill,BATTER,NZ
+53,Kyle Jamieson,BOWLER,NZ
+54,Daryl Mitchell,BOWLER,NZ
+55,Jimmy Neesham,ALL_ROUNDER,NZ
+56,Glenn Phillips,BATTER,NZ
+57,Mitchell Santner,BATTER,NZ
+58,Tim Seifert,WICKET_KEEPER,NZ
+59,Ish Sodhi,BOWLER,NZ
+60,Tim Southee,ALL_ROUNDER,NZ
+
+61,Mohammad Nabi,ALL_ROUNDER,AFG
+62,Asghar Afghan,BATTER,AFG
+63,Fareed Ahmad,BOWLER,AFG
+64,Usman Ghani,BATTER,AFG
+65,Rahmanullah Gurbaz,WICKET_KEEPER,AFG
+66,Hamid Hassan,BOWLER,AFG
+67,Karim Janat,ALL_ROUNDER,AFG
+68,Rashid Khan,BOWLER,AFG
+69,Gulbadin Naib,BOWLER,AFG
+70,Hashmatullah Shahidi,BATTER,AFG
+71,Mohammad Shahzad,WICKET_KEEPER,AFG
+72,Naveen-ul-Haq,BOWLER,AFG
+73,Mujeeb Ur Rahman,BOWLER,AFG
+74,Najibullah Zadran,BATTER,AFG
+75,Hazratullah Zazai,BATTER,AFG
+
+76,Mahmudullah,ALL_ROUNDER,BGD
+77,Nasum Ahmed,BOWLER,BGD
+78,Taskin Ahmed,BOWLER,BGD
+79,Liton Das,WICKET_KEEPER,BGD
+80,Mahedi Hasan,ALL_ROUNDER,BGD
+81,Nurul Hasan,WICKET_KEEPER,BGD
+82,Shakib Al Hasan,ALL_ROUNDER,BGD
+83,Afif Hossain,ALL_ROUNDER,BGD
+84,Shamim Hossain,BOWLER,BGD
+85,Shoriful Islam,BOWLER,BGD
+86,Mohammad Naim,BATTER,BGD
+87,Mushfiqur Rahim,BATTER,BGD
+88,Mustafizur Rahman,BOWLER,BGD
+89,Mohammad Saifuddin,ALL_ROUNDER,BGD
+90,Soumya Sarkar,BATTER,BGD
+91,Rubel Hossain,BOWLER,BGD
+
+92,Andrew Balbirnie,BATTER,IRL
+93,Mark Adair,BOWLER,IRL
+94,Curtis Campher,ALL_ROUNDER,IRL
+95,Gareth Delany,BOWLER,IRL
+96,George Dockrell,BOWLER,IRL
+97,Josh Little,BOWLER,IRL
+98,Andy McBrine,BOWLER,IRL
+99,Kevin O'Brien,ALL_ROUNDER,IRL
+100,Neil Rock,WICKET_KEEPER,IRL
+101,Simi Singh,ALL_ROUNDER,IRL
+102,Paul Stirling,BATTER,IRL
+103,Harry Tector,BATTER,IRL
+104,Lorcan Tucker,WICKET_KEEPER,IRL
+105,Ben White,BOWLER,IRL
+106,Craig Young,BOWLER,IRL
+
+107,Gerhard Erasmus,BATTER,NAM
+108,JJ Smit,BOWLER,NAM
+109,Stephan Baard,BATTER,NAM
+110,Karl Birkenstock,BATTER,NAM
+111,Michiel du Preez,WICKET_KEEPER,NAM
+112,Jan Frylinck,ALL_ROUNDER,NAM
+113,Zane Green,BATTER,NAM
+114,Jan Nicol Loftie-Eaton,BATTER,NAM
+115,Bernard Scholtz,BOWLER,NAM
+116,Ben Shikongo,BOWLER,NAM
+117,Ruben Trumpelmann,BOWLER,NAM
+118,Michael van Lingen,ALL_ROUNDER,NAM
+119,David Wiese,ALL_ROUNDER,NAM
+120,Craig Williams,ALL_ROUNDER,NAM
+121,Pikky Ya France,BATTER,NAM
+
+122,Pieter Seelaar,ALL_ROUNDER,NLD
+123,Colin Ackermann,ALL_ROUNDER,NLD
+124,Philippe Boissevain,BOWLER,NLD
+125,Ben Cooper,BATTER,NLD
+126,Scott Edwards,WICKET_KEEPER,NLD
+127,Brandon Glover,BOWLER,NLD
+128,Fred Klaassen,BOWLER,NLD
+129,Bas de Leede,BATTER,NLD
+130,Stephan Myburgh,BATTER,NLD
+131,Max O'Dowd,BATTER,NLD
+132,Ryan ten Doeschate,BATTER,NLD
+133,Logan van Beek,BOWLER,NLD
+134,Timm van der Gugten,BOWLER,NLD
+135,Roelof van der Merwe,ALL_ROUNDER,NLD
+136,Paul van Meekeren,BOWLER,NLD
+
+137,Zeeshan Maqsood,ALL_ROUNDER,OMN
+138,Aqib Ilyas,BATTER,OMN
+139,Khawar Ali,ALL_ROUNDER,OMN
+140,Fayyaz Butt,BOWLER,OMN
+141,Nestor Dhamba,BOWLER,OMN
+142,Sandeep Goud,BATTER,OMN
+143,Kaleemullah,BOWLER,OMN
+144,Ayaan Khan,BATTER,OMN
+145,Bilal Khan,BOWLER,OMN
+146,Suraj Kumar,BATTER,OMN
+147,Naseem Khushi,WICKET_KEEPER,OMN
+148,Sufyan Mehmood,BOWLER,OMN
+149,Mohammad Nadeem,BOWLER,OMN
+150,Khurram Nawaz,BATTER,OMN
+151,Jatinder Singh,BATTER,OMN
+
+152,Babar Azam,BATTER,PAK
+153,Shadab Khan,ALL_ROUNDER,PAK
+154,Sarfaraz Ahmed,WICKET_KEEPER,PAK
+155,Shaheen Afridi,BOWLER,PAK
+156,Asif Ali,BATTER,PAK
+157,Hasan Ali,BOWLER,PAK
+158,Haider Ali,BATTER,PAK
+159,Mohammad Hafeez,ALL_ROUNDER,PAK
+160,Shoaib Malik,BATTER,PAK
+161,Mohammad Nawaz,ALL_ROUNDER,PAK
+162,Haris Rauf,BOWLER,PAK
+163,Mohammad Rizwan,WICKET_KEEPER,PAK
+164,Imad Wasim,ALL_ROUNDER,PAK
+165,Mohammad Wasim Jr,ALL_ROUNDER,PAK
+166,Fakhar Zaman,BATTER,PAK
+
+167,Assad Vala,ALL_ROUNDER,PNG
+168,Charles Amini,BOWLER,PNG
+169,Simon Atai,WICKET_KEEPER,PNG
+170,Sese Bau,BATTER,PNG
+171,Kiplin Doriga,WICKET_KEEPER,PNG
+172,Jack Gardner,ALL_ROUNDER,PNG
+173,Hiri Hiri,BATTER,PNG
+174,Jason Kila,ALL_ROUNDER,PNG
+175,Kabua Morea,BOWLER,PNG
+176,Nosaina Pokana,BOWLER,PNG
+177,Damien Ravu,BOWLER,PNG
+178,Lega Siaka,BATTER,PNG
+179,Chad Soper,BOWLER,PNG
+180,Gaudi Toka,BATTER,PNG
+181,Tony Ura,BATTER,PNG
+182,Norman Vanua,BOWLER,PNG
+
+183,Kyle Coetzer,BATTER,SCT
+184,Richie Berrington,ALL_ROUNDER,SCT
+185,Dylan Budge,BATTER,SCT
+186,Matthew Cross,WICKET_KEEPER,SCT
+187,Josh Davey,BOWLER,SCT
+188,Alasdair Evans,BOWLER,SCT
+189,Chris Greaves,ALL_ROUNDER,SCT
+190,Michael Leask,BOWLER,SCT
+191,Calum MacLeod,BATTER,SCT
+192,George Munsey,BATTER,SCT
+193,Safyaan Sharif,BOWLER,SCT
+194,Hamza Tahir,BOWLER,SCT
+195,Craig Wallace,BATTER,SCT
+196,Mark Watt,BOWLER,SCT
+197,Brad Wheal,BOWLER,SCT
+198,Chris Sole,BOWLER,SCT
+
+199,Temba Bavuma,BATTER,SA
+200,Quinton de Kock,WICKET_KEEPER,SA
+201,Bjorn Fortuin,BOWLER,SA
+202,Reeza Hendricks,BATTER,SA
+203,Heinrich Klaasen,WICKET_KEEPER,SA
+204,Keshav Maharaj,BOWLER,SA
+205,Aiden Markram,BATTER,SA
+206,David Miller,BATTER,SA
+207,Wiaan Mulder,ALL_ROUNDER,SA
+208,Lungi Ngidi,BOWLER,SA
+209,Anrich Nortje,BOWLER,SA
+210,Dwaine Pretorius,ALL_ROUNDER,SA
+211,Kagiso Rabada,BOWLER,SA
+212,Tabraiz Shamsi,BOWLER,SA
+213,Rassie van der Dussen,BATTER,SA
+
+214,Dasun Shanaka,ALL_ROUNDER,LKA
+215,Dhananjaya de Silva,ALL_ROUNDER,LKA
+216,Charith Asalanka,ALL_ROUNDER,LKA
+217,Dinesh Chandimal,BATTER,LKA
+218,Dushmantha Chameera,BOWLER,LKA
+219,Akila Dananjaya,BOWLER,LKA
+220,Avishka Fernando,BATTER,LKA
+221,Binura Fernando,BOWLER,LKA
+222,Wanindu Hasaranga,ALL_ROUNDER,LKA
+223,Chamika Karunaratne,BOWLER,LKA
+224,Lahiru Kumara,BOWLER,LKA
+225,Pathum Nissanka,BATTER,LKA
+226,Kusal Perera,WICKET_KEEPER,LKA
+227,Bhanuka Rajapaksa,BATTER,LKA
+228,Maheesh Theekshana,BOWLER,LKA
+
+229,Kieron Pollard,ALL_ROUNDER,WI
+230,Nicholas Pooran,WICKET_KEEPER,WI
+231,Fabian Allen,ALL_ROUNDER,WI
+232,Dwayne Bravo,ALL_ROUNDER,WI
+233,Roston Chase,ALL_ROUNDER,WI
+234,Andre Fletcher,WICKET_KEEPER,WI
+235,Chris Gayle,BATTER,WI
+236,Shimron Hetmyer,BATTER,WI
+237,Evin Lewis,BATTER,WI
+238,Obed McCoy,BOWLER,WI
+239,Ravi Rampaul,BOWLER,WI
+240,Andre Russell,ALL_ROUNDER,WI
+241,Lendl Simmons,BATTER,WI
+242,Oshane Thomas,BOWLER,WI
+243,Hayden Walsh Jr.,BOWLER,WI

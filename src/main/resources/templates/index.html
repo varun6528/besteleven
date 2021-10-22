@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="addTeam.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-light">
+    <div class="container-xl">
+        <a class="navbar-brand" href="#">
+            <img class="justify-content-center" src="https://www.verteil.com/assets/svg/logos/logo.svg" alt=""
+                 width="150" height="30">
+        </a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#80a83f;">
+                Settings
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2" style="background-color:#80a83f;">
+                <li><a class="dropdown-item" href="#">Rules</a></li>
+                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-2">
+    <div class="card bg-light" style="width: 40rem;">
+        <div class="card-body">
+            <div th:switch="${team}" class="container my-5">
+                <div class="col-md-10">
+                    <div th:case="null">
+                        <h2>No Team yet!</h2>
+                        <p class="my-5">
+                            <a href="/addTeam" class="btn btn-primary"><i
+                            > Add Team</i></a>
+                        </p>
+                    </div>
+                    <div th:case="*">
+                        <h4><span class="badge" style="background-color:#80a83f;">Batsmen</span></h4>
+                        <ul class="list-group me-5" th:each="batsman: ${team.allBatsmen}">
+                            <li class="list-group-item" th:text="${batsman}"></li>
+                        </ul>
+                        <h4><span class="badge mt-2" style="background-color:#80a83f;">Bowlers</span></h4>
+                        <ul class="list-group me-5" th:each="bowler: ${team.allBowlers}">
+                            <li class="list-group-item" th:text="${bowler}"></li>
+                        </ul>
+                        <h4><span class="badge mt-2" style="background-color:#80a83f;">Keeper</span></h4>
+                        <ul class="list-group me-5">
+                            <li class="list-group-item" th:text="${team.keeper}"></li>
+                        </ul>
+
+                        <p class="my-5">
+                            <a href="/updateTeam" class="btn btn-primary"><i
+                            > Update Team</i></a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

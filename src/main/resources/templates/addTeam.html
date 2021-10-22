@@ -1,0 +1,170 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Team Selection</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{/js/addTeam.js}"></script>
+</head>
+
+<body style="background-size: cover;
+background-repeat: no-repeat; background-image: url('https://images.unsplash.com/photo-1516118461620-03680a03bd27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80');">
+<nav class="navbar navbar-light">
+    <div class="container-xl">
+        <!--        <a class="navbar-brand" th:href="@{/{userId}/home(userId=${user.id})}">-->
+        <a class="navbar-brand" th:href="@{/user/landing}">
+            <img class="justify-content-center" src="https://www.verteil.com/assets/svg/logos/logo.svg" alt=""
+                 width="150" height="30">
+        </a>
+        <div class="dropdown justify-content-center" style="right: 0; left: auto;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#80a83f;">
+                Settings
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2"
+                style="background-color:#80a83f; left:auto; right:0; margin-right:0">
+                <li>
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Rules</button>
+                </li>
+                <li><a class="dropdown-item" th:href="@{/changePassword}">Change Password</a></li>
+                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ol>
+                    <li class="p-1 mx-1">Predict match winner correctly and get 50 points</li>
+                    <li class="p-1 mx-1">Select your team for every T20 game</li>
+                    <li class="p-1 mx-1">Time window to select your teams for the day closes by 10 am</li>
+                    <li class="p-1 mx-1">You gain 50 bonus points if your team has atleast 4 batters, 1 allrounder, 1
+                        wicketkeeper and 2 bowlers
+                    </li>
+                    <li class="p-1 mx-1">Every run will earn you 1 point</li>
+                    <li class="p-1 mx-1">Every wicket wil earn you 25 points</li>
+                    <li class="p-1 mx-1">Man of the match if predicted correctly will earn you double points</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form th:action="@{/saveTeam}" th:object="${playingEleven}" method="post">
+    <div class="d-flex justify-content-center my-5">
+        <div class="card mb-5" id="boxed" style="width: 70%; background:#f8f9fb;">
+            <div class="container mt-3 ms-2" style="margin-bottom: 0px;">
+                <h4 class="pt-4 ms-3 hidden" id="date" style="margin-right: 10%;">
+                    <span class="badge" style="background-color: #80a83f;" th:text="${match.date}"></span>
+                </h4>
+                <div th:if="${playingEleven.id} != null">
+                    <select hidden th:field="*{id}">
+                        <option th:value="${playingEleven.id}" selected></option>
+                    </select>
+                </div>
+                <div class="d-flex pt-2 flex-row">
+                    <div class="ps-3 fs-5 fw-bold">
+                        Match
+                        <input type="hidden" th:value="${matchId}" name="matchId">
+                        <span class="fw-bold" th:text="|${matchId} : |"></span>
+                    </div>
+                    <div id="firstCountry" class="ps-3 fs-5 fw-bold" th:value="${firstTeam.country}"
+                         th:text="${firstTeam.country}">
+                    </div>
+                    <div class="ps-3 fs-5 fw-bold">
+                        Vs
+                    </div>
+                    <div class="ps-3 fs-5 fw-bold" th:value="${secondTeam.country}" th:text="${secondTeam.country}">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex ps-3 pt-2 flex-row">
+                <div class="px-3 fs-5 fw-bold">
+                    Verdict :
+                </div>
+                <select class="form-select form-select-sm fs-6 fw-bold" aria-label="Default select example"
+                        style="width: fit-content;" th:field="*{winner}">
+                    <option class="fs-6" th:value="${firstTeam.country}" th:text="${firstTeam.country}"></option>
+                    <option class="fs-6" th:value="${secondTeam.country}" th:text="${secondTeam.country}"></option>
+                </select>
+            </div>
+
+            <div class="table-responsive px-2 pt-4 ms-4 me-5" style="width: 90%;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr style="background-color: #80a83f;">
+                        <th class="col text-center text-light" style="width: fit-content;">No.</th>
+                        <th class="col text-center text-light" style="width: fit-content;">Player (Role)</th>
+                    </tr>
+                    <tbody>
+                    <div th:each="i : ${#numbers.sequence( 1, 11)}">
+                        <tr>
+                            <td class="text-center align-middle" th:text="${i}"></td>
+                            <th class="text-center">
+                                <select class="playerSelect form-select form-select-sm align-middle"
+                                        th:id="|player${i}|"
+                                        onchange="getSelectValue(this.value, this.id, this)"
+                                        th:field="*{players[__${i}-1__].id}">
+                                    <option class="fs-6" value="0">Select player</option>
+                                    <option th:each="player : ${allPlayers}" th:value="${player.id}"
+                                            th:text="|${player.name} (${player.type}, ${player.country})|">
+                                    </option>
+                                </select>
+                            </th>
+                        </tr>
+                    </div>
+                    </tbody>
+                    </thead>
+                </table>
+                <div class="px-2 py-4">
+                    <h4><span class="badge" style="background-color: #80a83f;">Man of the Match Pick</span></h4>
+                    <select class="playerSelect form-select form-select-sm" id="manOfTheMatch"
+                            style="width: fit-content;" th:field="*{manOfTheMatchSelected}">
+                        <option class="fs-6" value="0">Select player</option>
+                        <option th:unless="${#lists.isEmpty(selectedPlayers)}" th:each="player : ${selectedPlayers}" th:value="${player.id}"
+                                th:text="|${player.name} (${player.type}, ${player.country})|"></option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-center mb-4">
+                    <input type="submit" th:disabled="${match.matchOver == true}"
+                           onclick="return confirm('Are you sure?')" class="btn btn-primary"
+                           value="Submit Team">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+</body>
+<footer id="footer" class="footer bg-dark mb-0" style="
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        position: fixed;
+      ">
+    <div class="container">
+        <img class="py-2 justify-content-center" src="https://www.verteil.com/assets/svg/logos/logo-white.svg"
+             alt="">
+    </div>
+</footer>
+
+
+</html>
