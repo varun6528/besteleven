@@ -1,6 +1,6 @@
 function computeScore(id, value, selector) {
   console.log(value);
-  if (isNaN(value)) {
+  if (isNaN(value) || value == "") {
     alert("Please enter a number");
     return;
   }
