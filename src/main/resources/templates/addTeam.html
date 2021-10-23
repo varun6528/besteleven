@@ -141,7 +141,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                     </select>
                 </div>
                 <div class="d-flex justify-content-center mb-4">
-                    <input type="submit" th:disabled="${match.matchOver == true}"
+                    <input type="submit" th:unless="${match.matchOver == true}"
                            onclick="return confirm('Are you sure?')" class="btn btn-primary"
                            value="Submit Team">
                 </div>
