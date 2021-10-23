@@ -82,25 +82,6 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                 <tbody>
                 <div th:unless="${user.admin}">
                     <div th:each="match : ${schedule}">
-                        <div th:if="${match.matchOver}">
-                            <tr class="table-secondary">
-                                <th class="text-center" th:text="${match.id}"></th>
-                                <td class="text-center" th:text="${match.date}"></td>
-                                <td class="text-center" th:text="|${match.firstTeam}  V  ${match.secondTeam}|">
-                                </td>
-                                <td class="text-center" th:text="${match.round}"></td>
-                                <td class="text-center" th:text="${match.group}"></td>
-                                <div th:if="${userScores.get(__${match.id}__)} != null">
-                                    <th class="text-center"  th:text="${userScores.get(__${match.id}__).score}"></th>
-                                    <th class="text-center"  th:text="${userScores.get(__${match.id}__).rank}"></th>
-                                </div>
-                                <div th:unless="${userScores.get(__${match.id}__)} != null">
-                                    <th class="text-center">-</th>
-                                    <th class="text-center">-</th>
-                                </div>
-                            </tr>
-                        </div>
-                        <div th:unless="${match.matchOver}">
                             <tr>
                                 <th class="text-center" th:text="${match.id}"></th>
                                 <td class="text-center" th:text="${match.date}"></td>
@@ -114,7 +95,6 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                                 <th class="text-center">-</th>
                                 <th class="text-center">-</th>
                             </tr>
-                        </div>
                     </div>
                 </div>
                 <div th:if="${user.admin}">
