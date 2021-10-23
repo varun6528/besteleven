@@ -44,7 +44,7 @@ public class MatchServiceImpl implements MatchService {
 
     private boolean checkDatePassed(LocalDate matchDate) {
         LocalDateTime timeToCheck = LocalDateTime.now();
-        LocalDateTime matchTime = LocalDateTime.of(matchDate, LocalTime.of(12, 00));
+        LocalDateTime matchTime = LocalDateTime.of(matchDate, LocalTime.of(06, 30));
         return matchTime.isBefore(timeToCheck);
     }
 }

@@ -62,7 +62,6 @@ public class MatchSummaryController {
     @PostMapping("/matchSummary")
     public String save(MatchSummary matchSummary) {
         matchSummaryService.save(matchSummary);
-        playingElevenService.prepareScore(matchSummary);
         return "redirect:/user/landing";
     }
 
