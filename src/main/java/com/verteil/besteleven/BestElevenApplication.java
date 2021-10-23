@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoCo
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootApplication(exclude = EmbeddedMongoAutoConfiguration.class)
+@SpringBootApplication
 public class BestElevenApplication {
 
     @Autowired
