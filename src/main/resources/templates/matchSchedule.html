@@ -63,7 +63,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
             <p th:unless="${user.admin}" class="card-text fs-5 ps-2 pt-3 ms-4 mb-0"><strong>Your Overall Score :<span class="px-2 ms-2" th:text="${user.score}"></span></strong></p>
             <p th:unless="${user.admin}" class="card-text fs-5 ps-2 mt-1 ms-4 mb-0"><strong>Your Overall Rank :<span th:if="${user.rank} != 0"><span class="px-2 ms-2" th:text="${user.rank}"></span></span><span th:if="${user.rank} == 0"><span class="px-2 ms-2" >-</span></span></strong></p>
             <p th:unless="${user.admin}" class="card-text fs-5 ps-2 mt-1 ms-4 text-danger"><strong>Click on the match to select your team!</strong></p>
-            <p th:if="${user.admin}" class="card-text fs-5 ps-2 pt-2 mt-1 ms-4 text-danger"><strong>Click on the match to add score!</strong></p>
+            <p th:if="${user.admin}" class="card-text fs-5 ps-2 pt-2 mt-1 ms-4 text-danger"><strong>Click on the fixture to add score for each match!</strong></p>
         </div>
         <div class="table-responsive px-2 pt-2 ms-4 me-5">
             <table class="table table-bordered">
@@ -74,7 +74,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                     <th class="col text-center" style="width: fit-content;">Fixture</th>
                     <th class="col text-center" style="width: fit-content;">Round</th>
                     <th class="col text-center" style="width: fit-content;">Group</th>
-                    <th class="col text-center" th:if="${user.admin}" style="width: fit-content;">Add Score</th>
+                    <th class="col text-center" th:if="${user.admin}" style="width: fit-content;">Calculate Score</th>
                     <th class="col text-center" th:unless="${user.admin}" style="width: fit-content;">Daily Score</th>
                     <th class="col text-center" th:unless="${user.admin}" style="width: fit-content;">Daily Rank</th>
                 </tr>
@@ -110,7 +110,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                             <td class="text-center" th:text="${match.round}"></td>
                             <td class="text-center" th:text="${match.group}"></td>
                             <td class="text-center">
-                                <a th:if="${match.firstTeam} != 'TBC' AND ${match.secondTeam} != 'TBC'" th:href="@{/match/calculate(matchId=${match.id})}">Prepare Score
+                                <a th:if="${match.firstTeam} != 'TBC' AND ${match.secondTeam} != 'TBC'" th:href="@{/match/calculate(matchId=${match.id})}" onclick="return confirm('Please ensure the score has been updated via the link available under the fixture of this match. Are you sure you want to proceed?')">Calculate Score
                                 </a>
                                 <div th:if="${match.firstTeam} == 'TBC' OR ${match.secondTeam} == 'TBC'" >TBC</div>
                             </td>

@@ -99,6 +99,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
                 </div>
                 <select class="form-select form-select-sm fs-6 fw-bold" aria-label="Default select example"
                         style="width: fit-content;" th:field="*{winner}">
+                    <option class="fs-6" value="0">Predict Winner</option>
                     <option class="fs-6" th:value="${firstTeam.country}" th:text="${firstTeam.country}"></option>
                     <option class="fs-6" th:value="${secondTeam.country}" th:text="${secondTeam.country}"></option>
                 </select>
