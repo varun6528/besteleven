@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -31,7 +30,7 @@ public class UserController {
 
     @GetMapping("/user/score")
     public String fetchScores(Model model) {
-        model.addAttribute("date", LocalDate.now());
+        model.addAttribute("date", LocalDate.now().minusDays(1L));
         model.addAttribute("dailyLeaders", userService.findAllScoreByMatch());
         model.addAttribute("usersOverall", userService.findOverAllScore());
         return "LeaderBoard";
