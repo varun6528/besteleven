@@ -37,7 +37,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map<String, List<User>> findAllScoreByMatch() {
-        List<Match> matches = matchService.findByDate(LocalDate.now());
+        List<Match> matches = matchService.findByDate(LocalDate.now().minusDays(1L));
+        if (CollectionUtils.isEmpty(matches)) {
+            matches = matchService.findByDate(LocalDate.now().minusDays(2L));
+            if (CollectionUtils.isEmpty(matches)) {
+                matches = matchService.findByDate(LocalDate.now().minusDays(3L));
+            }
+        }
         return matches
                 .stream()
                 .map(match -> {
