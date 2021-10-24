@@ -48,6 +48,7 @@ public class MatchController {
     @GetMapping("/match/calculate")
     public String calculate(@RequestParam("matchId") int matchId, Model model) {
         MatchSummary matchSummary = matchSummaryService.findByMatchId(matchId);
+        playingElevenService.prepareScore(matchSummary);
         return "redirect:/user/score";
     }
 }
