@@ -63,7 +63,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
 <form th:action="@{/matchSummary}" th:object="${matchSummary}" method="post">
 <div class="card mt-5" style="width: 70%; padding: auto; margin: auto; background:#f8f9fb;">
     <select hidden th:field="*{matchId}">
-        <option selected value="${match.id}" th:value="${match.id}"></option>
+        <option selected th:value="${match.id}"></option>
     </select>
     <div class="d-flex justify-content-center mt-3">
         <div class="mt-3 ms-2 mb-0">
@@ -81,7 +81,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
             </div>
         </div>
     </div>
-        <div th:if="${matchSummary.id} != null">
+        <div th:if="${matchSummary.id != null}">
             <select hidden th:field="*{id}">
                 <option th:value="${matchSummary.id}" selected></option>
             </select>
@@ -92,6 +92,7 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
         </div>
         <select class="form-select form-select-sm ps-2" aria-label="multiple select example"
                 style="width: fit-content;" th:field="*{winner}">
+            <option value="0">Select Winner</option>
             <option th:value="${match.firstTeam}" th:text="${match.firstTeam}"></option>
             <option th:value="${match.secondTeam}" th:text="${match.secondTeam}"></option>
         </select>
@@ -146,22 +147,17 @@ background-repeat: no-repeat; background-image: url('https://images.unsplash.com
         <h4><span class="badge mt-2" style="background-color: #80a83f;">Man of the Match</span></h4>
         <select class="form-select form-select-sm mx-5" id="manOfTheMatch"
                 style="width: fit-content;" th:field="*{momId}">
+            <option value="0">Select man of the match</option>
             <option th:each="player : ${allPlayers}" th:value="${player.id}" th:text="${player.name}"></option>
         </select>
     </div>
+    <div class="d-flex justify-content-center mt-3 mb-4">
+        <input type="submit" onclick="return confirm('Are you sure?')" class="btn btn-primary"
+               value="Save Summary">
+    </div>
 </div>
-
-<div class="d-flex justify-content-center mt-3 mb-4">
-    <input type="submit" onclick="return confirm('Are you sure?')" class="btn btn-primary"
-           value="Save Summary">
-</div>
-
 </form>
 </div>
-
-
-
-
 
 </body>
 <footer id="footer" class="footer bg-dark mb-0" style="
