@@ -57,7 +57,7 @@ public class PlayerRespository {
         return players.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
-                .get();
+                .orElse(new Player());
     }
 
     public Player findByName(String name) {

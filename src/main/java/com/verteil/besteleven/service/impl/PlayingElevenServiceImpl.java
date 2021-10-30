@@ -79,8 +79,10 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
     }
 
     private int calculateScore(Map<Integer, Integer> playerScoreMap, PlayingEleven playingEleven, MatchSummary matchSummary) {
+        log.info("Player Score Map : {}", playerScoreMap);
+        log.info("Playing Eleven : {}", playingEleven);
         int score = playingEleven.getPlayers().stream()
-                .mapToInt(p -> playerScoreMap.get(p.getId()))
+                .mapToInt(p -> playerScore(playerScoreMap, p.getId()))
                 .sum();
         int additionalScore = calculateAdditionalScores(playingEleven, matchSummary);
         if (matchSummary.getMomId().equals(playingEleven.getManOfTheMatchSelected())) {
@@ -88,6 +90,12 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
         }
         return score + additionalScore;
     }
+
+    private int playerScore(Map<Integer, Integer> playerScoreMap, int id) {
+        Integer score = playerScoreMap.get(id);
+        return score == null ? 0 : score;
+    }
+
 
     private int calculateAdditionalScores(PlayingEleven playingEleven, MatchSummary matchSummary) {
 
@@ -98,6 +106,7 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
 
         Map<PlayerType, List<Player>> playerTypes = playingEleven.getPlayers().stream()
                 .map(p -> playerRespository.findById(p.getId()))
+                .filter(p -> p.getId() != null)
                 .collect(Collectors.groupingBy(Player::getType));
 
         int batters = 0;
