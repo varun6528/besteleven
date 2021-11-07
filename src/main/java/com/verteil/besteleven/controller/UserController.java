@@ -29,10 +29,12 @@ public class UserController {
     }
 
     @GetMapping("/user/score")
-    public String fetchScores(Model model) {
+    public String fetchScores(HttpServletRequest request, Model model) {
+        User user = (User) request.getSession().getAttribute("user");
         model.addAttribute("date", LocalDate.now().minusDays(1L));
         model.addAttribute("dailyLeaders", userService.findAllScoreByMatch());
         model.addAttribute("usersOverall", userService.findOverAllScore());
+        model.addAttribute("isAdmin", user.isAdmin());
         return "LeaderBoard";
     }
 }
