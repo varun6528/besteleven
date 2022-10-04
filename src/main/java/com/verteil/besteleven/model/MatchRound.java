@@ -1,5 +1,5 @@
 package com.verteil.besteleven.model;
 
 public enum MatchRound {
-    SUPER_12, SEMI_FINAL, FINAL;
+    FIRST_ROUND, SUPER_12, SEMI_FINAL, FINAL;
 }
