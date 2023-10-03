@@ -20,11 +20,16 @@
 body {
     font-family: 'Open Sans';
 }
+.bg-light{
+    background-color: rgba(247, 243, 245, 0) !important;; 
+}
 </style>
 </head>
-
-<body class="bg-light" style="background-size: cover;
-background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsxpdwsf/stadium_2_3hSSHGuWd.png');">
+.card-body{
+    background-color: #ffffff00 ;
+}
+<body class="bg-light" style="background: rgba(247, 243, 245, 0); background-size: cover;
+background-repeat: no-repeat; background-image: url('https://img.freepik.com/premium-photo/futuristic-stadium-with-city-background_846334-102.jpg?w=740');">
 
 <nav class="navbar" style="background: #1F1F30;">
     <div class="container-xl">
@@ -46,7 +51,7 @@ background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsx
     </div>
 </nav>
 
-<div class="d-flex mt-5" style="height: fit-content;position: absolute;left: 30%;">
+<div class="d-flex mt-5" style=" height: fit-content;position: absolute;left: 30%;">
 		<a href="javascript:history.back()" style="text-decoration: none;color: #FFF;font-weight: 600;font-size: 18px;">
 		<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<line x1="20.2317" y1="9" x2="5.23169" y2="9" stroke="white" stroke-width="3" stroke-linecap="round"/>
@@ -55,16 +60,16 @@ background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsx
 		</svg><span style="margin-left: 10px;">Back</span></a>
 	</div>
 
-<div class="container my-2">
+<div class="container my-2" >
 
     <div class="card bg-light" style="width: 40rem;margin-left: auto;margin-right: auto;margin-top: 85px;">
-        <div class="card-body">
+        <div class="card-body" >
             <div th:switch="${team}" class="container my-5">
-                <div class="col-md-10">
+                <div class="col-md-10" style="background: #0dd69300;">
                     <div th:case="null">
                         <h2>No Team yet!</h2>
                         <p class="my-5">
-                            <a href="/addTeam" class="btn" style="background: #DB3F66; color:#FFF"><i
+                            <a href="/addTeam" class="btn" style="background: #DB3F66; border: 1px solid #007bff;color:#FFF"><i
                             > Add Team</i></a>
                         </p>
                     </div>
@@ -83,7 +88,7 @@ background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsx
                         </ul>
 
                         <p class="my-5">
-                            <a href="/updateTeam" class="btn" style="background: #DB3F66; color:#FFF"><i
+                            <a href="/updateTeam" class="btn" style="background: #DB3F66;border: 1px solid #007bff; color:#FFF"><i
                             > Update Team</i></a>
                         </p>
                     </div>

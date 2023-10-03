@@ -23,7 +23,7 @@ body {
 </head>
 
 <body style="background-size: cover;
-background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsxpdwsf/stadium_2_3hSSHGuWd.png');">
+background-repeat: no-repeat; background-image: url('https://img.freepik.com/premium-photo/futuristic-stadium-with-city-background_846334-102.jpg?w=740');">
 <nav class="navbar" style="background: #1F1F30;">
     <div class="container-xl">
         <!--        <a class="navbar-brand" th:href="@{/{userId}/home(userId=${user.id})}">-->
@@ -73,7 +73,7 @@ background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsx
 		</svg><span style="margin-left: 10px;">Back</span></a>
 	</div>
 <form th:action="@{/matchSummary}" th:object="${matchSummary}" method="post">
-<div class="card" style="width: 70%; padding: auto; margin: auto; background:#f8f9fb;margin-top: 90px;">
+<div class="card" style="width: 70%; padding: auto; margin: auto; background:#f8f9fb00;margin-top: 90px;">
     <select hidden th:field="*{matchId}">
         <option selected th:value="${match.id}"></option>
     </select>
@@ -165,7 +165,7 @@ background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsx
         </select>
     </div>
     <div class="d-flex justify-content-center">
-        <input type="submit" style="background: #DB3F66;color:#FFF" onclick="return confirm('Are you sure?')" class="btn"
+        <input type="submit" style="background: #DB3F66;border: 1px solid #007bff;color:#FFF" onclick="return confirm('Are you sure?')" class="btn"
                value="Save Summary">
     </div>
 	</div>

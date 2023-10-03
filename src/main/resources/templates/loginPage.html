@@ -19,35 +19,35 @@ body {
 </head>
 
 <body style="background-size: cover;
-background-repeat: no-repeat; background-image: url('https://ik.imagekit.io/9zsxpdwsf/stadium_2_3hSSHGuWd.png');">
+background-repeat: no-repeat; background-image: url('https://circleofcricket.com/post_image/post_image_78520b3.jpg');">
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-		<main style="width: 70%; height: auto; margin-left:auto;margin-top: 30%; margin-right: 5%; margin-bottom: 50px;">
-		<img src="https://ik.imagekit.io/9zsxpdwsf/T20_Logo_6n5R3HofF.png">
+		<main style="width: 70%; height: auto; margin-left:auto;margin-top: 20%; margin-right: 5%; margin-bottom: 100px;">
+		<!-- <img src="https://www.icccricketschedule.com/wp-content/uploads/2023/06/ICC-Cricket-World-Cup-2023.jpg" style="width: 100%;"> -->
 		</main>
 		</div>
         <div class="col-md-6">
-		<main class="card px-2" style="width: 70%; height: auto; margin-left: 15%; margin-right: auto; margin-bottom: 50px; margin-top: 100px;">
+		<main class="card px-2" style="width: 70%; height: auto; margin-left: 50%; margin-right: auto; margin-bottom: 50px; margin-top: 100px; background-color: rgba(245, 235, 235, 0.788);">
         <form method="POST" th:action="@{/login}" th:object="${user}">
-            <div class="mt-1 mx-2" style="text-align: center;">              
+            <div class="mt-1 mx-2" style="text-align: center; color: #88A74F;">              
                 <div style="margin-top: 20px;">
                     <span class="fs-7" style="font-weight: 600;font-size: 20px;color: #88A74F;">Verteil Presents</span>
                 </div>
                 <div class="mt-3 mx-3">
-                    <span class="mt-2" style="color: #2C2E32; font-family: 'Monoton', cursive;font-size: 54px;">SOOPER 11</span>
+                    <span class="mt-2" style="color: #111010; font-family: 'Monoton', cursive;font-size: 54px;">SOOPER 11</span>
                 </div>
-                <h3 class="mt-1 mb-3" style="font-weight: 600;font-size: 40px;color: #2C2E32;">Verdict</h3>
+                <h3 class="mt-1 mb-3" style="font-weight: 600;font-size: 40px;color: #111010;">Verdict</h3>
             </div>
             <div class="mx-3 mt-4">
-			<h2 class="mb-3" style="font-weight: 700;font-size: 22px;color: #4C4D50;">LOGIN</h2>
+			<h2 class="mb-3" style="font-weight: 700;font-size: 22px;color: #1b1a1a;">LOGIN</h2>
                 <div class="mb-3">
-                    <label for="inputEmail" class="form-label fst-italic" style="font-weight: 600;font-size: 16px;color: #4C4D50;">Email<span class="text-danger">*</span></label>
+                    <label for="inputEmail" class="form-label fst-italic" style="font-weight: 600;font-size: 16px;color: #1b1a1a;">Email<span class="text-danger">*</span></label>
                     <input type="email" placeholder="Enter your email id" class="form-control" th:field="*{name}" id="inputEmail" style="width: 100%;height: 50px;background: #F4F7FA;border: 1px solid #D0D7DE;border-radius: 4px;" aria-describedby="emailHelp" required>
                     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                 </div>
                 <div class="mb-3 mt-4">
-                    <label for="inputPassword" class="form-label fst-italic" style="font-weight: 600;font-size: 16px;color: #4C4D50;">Password<span class="text-danger">*</span></label>
+                    <label for="inputPassword" class="form-label fst-italic" style="font-weight: 600;font-size: 16px;color: #1b1a1a;">Password<span class="text-danger">*</span></label>
                     <input type="password" placeholder="Enter password" class="form-control" th:field="*{password}"  style="width: 100%;height: 50px;background: #F4F7FA;border: 1px solid #D0D7DE;border-radius: 4px;"  id="inputPassword" required>
                     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                 </div>
