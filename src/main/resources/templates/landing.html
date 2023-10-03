@@ -13,40 +13,38 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-		  	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-	<style>
-body {
-    font-family: 'Open Sans';
-}
-</style>
     <script src='main.js'></script>
 </head>
 
 <body style="background-size: cover;
-background-repeat: no-repeat; background-image: url('https://img.freepik.com/premium-photo/futuristic-stadium-with-city-background_846334-102.jpg?w=740');">
-<nav class="navbar" style="background: #1F1F30;">
+background-repeat: no-repeat; background-image: url('https://images.unsplash.com/photo-1516118461620-03680a03bd27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80');">
+<nav class="navbar navbar-light">
     <div class="container-xl">
         <!--        <a class="navbar-brand" th:href="@{/{userId}/home(userId=${user.id})}">-->
         <a class="navbar-brand" th:href="@{/user/landing}">
-            <img class="justify-content-center" src="https://uploads-ssl.webflow.com/62b47b00dbb5f525acc9b2d0/62c3dfc54a8cc55393448ece_Artboard%2020%201.svg" alt=""
+            <img class="justify-content-center" src="https://www.verteil.com/assets/svg/logos/logo.svg" alt=""
                  width="150" height="30">
         </a>
         <div class="dropdown justify-content-center">
-            <ul class="nav" aria-labelledby="dropdownMenuButton2"
-                style="left:auto; right:0; margin-right:0">
-                <li style="color:rgba(255, 255, 255, 0.8);">
-                    <button style="color:rgba(255, 255, 255, 0.8); text-decoration: none;" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Rules</button>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#80a83f;">
+                Settings
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2"
+                style="background-color:#80a83f; left:auto; right:0; margin-right:0">
+                <li>
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Rules</button>
                 </li>
-                <li><a class="btn" style="color:rgba(255, 255, 255, 0.8); text-decoration: none;" th:href="@{/changePassword}">Change Password</a></li>
-                <li><a class="btn" style="color:#DB3F66; text-decoration: none;" th:href="@{/logout}">Logout</a></li>
+                <li><a class="dropdown-item" th:href="@{/changePassword}">Change Password</a></li>
+                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div  style="background: #FFFFFF;box-shadow: 0px 11px 90px rgba(0, 0, 0, 0.15);border-radius: 6px;" class="modal-content">
-            <div style="border:none" class="modal-header">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -54,7 +52,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                 <ol>
                     <li class="p-1 mx-1">Predict match winner correctly and get 50 points</li>
                     <li class="p-1 mx-1">Select your team for every T20 game</li>
-                    <li class="p-1 mx-1">Time window to select your teams for the day closes by 8.30 am</li>
+                    <li class="p-1 mx-1">Time window to select your teams for the day closes by 12 pm</li>
                     <li class="p-1 mx-1">You gain 50 bonus points if your team has atleast 4 batters, 1 allrounder, 1
                         wicketkeeper and 2 bowlers
                     </li>
@@ -68,50 +66,53 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
 </div>
 
 <div class="d-flex justify-content-center my-5">
-    <div class="card" style="width: 50%; background: #ffffff00;box-shadow: 0px 11px 90px rgb(0 0 0 / 15%);border-radius: 6px;margin-top: 5%;">
+    <div class="card" style="width: 40%; background:#f8f9fb;">
         <div class="card-body">
-		<div class="container">
-		<div class="row d-flex align-items-center">
-								<div style=" display: flex;justify-content: center;"><span style='font-size:50px;'>&#127881;</span></div>
-								<div><h5 style="text-align: center;font-weight: 600;font-size: 60px;color: #0E0447;" class="card-text col-md-12">Welcome</h5></div>
-								<div  style=" display: flex;justify-content: center;text-align: center !important;"><span style="font-size: 24px;line-height: 28px;color: #0E0447;" th:text="${user.name}"></span></div>   
-			</div>
-			<div class="row pt-3">
-            <div th:unless="${user.admin}" style="padding-right: 1px;" class="card-text col-md-6">
-			<div class="d-block px-3 py-2" style="margin-right: 0px;margin-left: auto;width: 70%;background: linear-gradient(180deg, #FBFBFB 0%, #F1F4F5 100%);border-radius: 6px;height: 100%;">
-				<p class="col" style="text-align: center;font-weight: 600;font-size: 40px;color: #0E0447;" th:if="${user.score} != 0" ><strong th:text="${user.score}"></strong></p>
-                <p class="col"  style="text-align: center;font-weight: 600;font-size: 40px;color: #0E0447;" th:if="${user.score} == 0"><strong >-</strong></p>
-                <p class="col" style="text-align: center;font-weight: 400;font-size: 18px;color: #0E0447;">Total Score</p>
+            <h5 class="card-text"><strong>Welcome <span th:text="${user.name}"></span>!!</strong></h5>
+            <div th:unless="${user.admin}" class="card-text pt-4 ps-5 row">
+                <p class="col">Your Total Score:</p>
+                <p class="col"><strong th:text="${user.score}"></strong></p>
+                <p class="col"></p>
             </div>
-			 </div>
-            <div th:unless="${user.admin}" style="padding-left: 1px;" class="card-text  col-md-6">
-			<div class="d-block  px-3 py-2" style="margin-right: auto;margin-left: 0px;width: 70%;background: linear-gradient(180deg, #FBFBFB 0%, #F1F4F5 100%);border-radius: 6px;height: 100%;">
-				<p class="col" style="text-align: center;font-weight: 600;font-size: 40px;color: #0E0447;" th:if="${user.score} != 0"><strong th:text="${user.rank}"></strong></p>
-                <p class="col" style="text-align: center;font-weight: 600;font-size: 40px;color: #0E0447;" th:if="${user.score} == 0"><strong >-</strong></p>
-                <p class="col" style="text-align: center;font-weight: 400;font-size: 18px;color: #0E0447;">Overall Rank</p> 
+            <div th:unless="${user.admin}" class="card-text pt-2 ps-5 row">
+                <p class="col">Your Overall Rank:</p>
+                <p class="col" th:if="${user.rank} != 0" ><strong th:text="${user.rank}"></strong></p>
+                <p class="col" th:if="${user.rank} == 0" ><strong >-</strong></p>
+                <p class="col"></p>
             </div>
-			  </div>
-			</div>
             <!--  <div class="card-text pt-2 ps-5 row">
                   <a th:href="@{/matchSummary(matchId=${matchId})}" >Calculate Scores</a>
               </div>-->
-			  <div class="row py-3">
-				<div class="col-md-6">
-					<div class="px-3 py-2" style="margin-right: 0px;margin-left: auto;width: 85%;height: 60px;background: #FFFFFF;border: 2px solid #DB3F66;border-radius: 6px;display: flex;justify-content: center;align-items: center;">
-					<!--  <a href="/user/score?matchId=101" class="col stretched-link">View Scores</a>-->
-					<a style="color:#DB3F66;text-decoration: none;" th:href="@{/user/score}">View Scores</a>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="px-3 py-2" style="text-align: center;margin-right: auto;margin-left: 0px;width: 85%;height: 60px;background: #FFFFFF;border: 2px solid #DB3F66;border-radius: 6px;display: flex;justify-content: center;align-items: center;">
-					<a style="color:#DB3F66;text-decoration: none;" href="/match" th:if="${user.admin}" class="col ">Add Scores/View Schedule</a>
-					<a style="color:#DB3F66;text-decoration: none;" href="/match" th:unless="${user.admin}" class="col ">Select Team/View Schedule</a>
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="card-text pt-2 ps-5 row">
+                <!--  <a href="/user/score?matchId=101" class="col stretched-link">View Scores</a>-->
+                <a th:href="@{/user/score}">View Scores</a>
+            </div>
+            <div class="card-text pt-2 ps-5 row">
+                <a href="/match" th:if="${user.admin}" class="col ">Add Scores/View Schedule</a>
+                <a href="/match" th:unless="${user.admin}" class="col ">Select Team/View Schedule</a>
+            </div>
+            <div class="card-text pt-2 ps-5 row">
+                <a class="col" href="" th:unless="${user.admin}" data-bs-toggle="modal" data-bs-target="#exampleModal">Rules</a>
+            </div>
+
         </div>
     </div>
 </div>
 </body>
+<footer id="footer" class="footer bg-dark mb-0" style="
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    position: fixed;
+  ">
+    <div class="container">
+        <img class="py-2 justify-content-center" src="https://www.verteil.com/assets/svg/logos/logo-white.svg"
+             alt="">
+    </div>
+</footer>
+
+
+
 </html>
