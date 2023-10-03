@@ -82,18 +82,22 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
         log.info("Player Score Map : {}", playerScoreMap);
         log.info("Playing Eleven : {}", playingEleven);
         int score = playingEleven.getPlayers().stream()
-                .mapToInt(p -> playerScore(playerScoreMap, p.getId()))
+                .mapToInt(p -> playerScore(playerScoreMap, p.getId(), p.getId() == playingEleven.getManOfTheMatchSelected()))
                 .sum();
         int additionalScore = calculateAdditionalScores(playingEleven, matchSummary);
-        if (matchSummary.getMomId().equals(playingEleven.getManOfTheMatchSelected())) {
+        /*if (matchSummary.getMomId().equals(playingEleven.getManOfTheMatchSelected())) {
             score += playerScoreMap.get(matchSummary.getMomId());
-        }
+        }*/
         return score + additionalScore;
     }
 
-    private int playerScore(Map<Integer, Integer> playerScoreMap, int id) {
+    private int playerScore(Map<Integer, Integer> playerScoreMap, int id, boolean isMom) {
         Integer score = playerScoreMap.get(id);
-        return score == null ? 0 : score;
+        int totalScore = score == null ? 0 : score;
+        if (isMom) {
+            totalScore += totalScore;
+        }
+        return totalScore;
     }
 
 
