@@ -10,42 +10,55 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	<style>
+body {
+    font-family: 'Open Sans';
+}
+</style>
 </head>
 
 <body style="background-size: cover;
-background-repeat: no-repeat; background-image: url('https://images.unsplash.com/photo-1516118461620-03680a03bd27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80');">
-    <main class="card px-2" style="width: 100%; max-width: 330px; max-width: 330px; margin-left: auto; margin-right: auto; margin-bottom: 50px; margin-top: 100px;">
+background-repeat: no-repeat; background-image: url('https://circleofcricket.com/post_image/post_image_78520b3.jpg');">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+		<main style="width: 70%; height: auto; margin-left:auto;margin-top: 20%; margin-right: 5%; margin-bottom: 100px;">
+		<!-- <img src="https://www.icccricketschedule.com/wp-content/uploads/2023/06/ICC-Cricket-World-Cup-2023.jpg" style="width: 100%;"> -->
+		</main>
+		</div>
+        <div class="col-md-6">
+		<main class="card px-2" style="width: 70%; height: auto; margin-left: 50%; margin-right: auto; margin-bottom: 50px; margin-top: 100px; background-color: rgba(245, 235, 235, 0.788);">
         <form method="POST" th:action="@{/login}" th:object="${user}">
-            <div class="mt-1 mx-2" style="text-align: center;">
-                <img class="justify-content-center mt-1 mb-0" src="https://www.verteil.com/assets/svg/logos/logo.svg" alt=""
-                     width="150" height="60">
-                <div style="margin-top: 0;">
-                    <span class="fs-7" style="color: #80a83f;">PRESENTS</span>
+            <div class="mt-1 mx-2" style="text-align: center; color: #88A74F;">              
+                <div style="margin-top: 20px;">
+                    <span class="fs-7" style="font-weight: 600;font-size: 20px;color: #88A74F;">Verteil Presents</span>
                 </div>
-                <div class="mt-3 border border-success rounded mx-3">
-                    <span class="fs-1 mt-2" style="color: #80a83f; font-family: 'Monoton', cursive;">SOOPER 11</span>
+                <div class="mt-3 mx-3">
+                    <span class="mt-2" style="color: #111010; font-family: 'Monoton', cursive;font-size: 54px;">SOOPER 11</span>
                 </div>
-                <h3 class="mt-1 mb-3" style="color: #524f4f;">
-                    <strong>VER</strong>dict</h3>
+                <h3 class="mt-1 mb-3" style="font-weight: 600;font-size: 40px;color: #111010;">Verdict</h3>
             </div>
-            <div class="mx-3">
+            <div class="mx-3 mt-4">
+			<h2 class="mb-3" style="font-weight: 700;font-size: 22px;color: #1b1a1a;">LOGIN</h2>
                 <div class="mb-3">
-                    <label for="inputEmail" class="form-label fst-italic">Email<span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" th:field="*{name}" id="inputEmail" aria-describedby="emailHelp" required>
+                    <label for="inputEmail" class="form-label fst-italic" style="font-weight: 600;font-size: 16px;color: #1b1a1a;">Email<span class="text-danger">*</span></label>
+                    <input type="email" placeholder="Enter your email id" class="form-control" th:field="*{name}" id="inputEmail" style="width: 100%;height: 50px;background: #F4F7FA;border: 1px solid #D0D7DE;border-radius: 4px;" aria-describedby="emailHelp" required>
                     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                 </div>
-                <div class="mb-3">
-                    <label for="inputPassword" class="form-label fst-italic">Password<span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" th:field="*{password}" id="inputPassword" required>
+                <div class="mb-3 mt-4">
+                    <label for="inputPassword" class="form-label fst-italic" style="font-weight: 600;font-size: 16px;color: #1b1a1a;">Password<span class="text-danger">*</span></label>
+                    <input type="password" placeholder="Enter password" class="form-control" th:field="*{password}"  style="width: 100%;height: 50px;background: #F4F7FA;border: 1px solid #D0D7DE;border-radius: 4px;"  id="inputPassword" required>
                     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                 </div>
-                <div class="mt-3 mb-3">
-                    <button  type="submit" class="btn btn-primary text-center ">Login</button>
+                <div class="mt-5 mb-3">
+                    <button  type="submit" class="btn btn-primary text-center " style="width: 100%;height: 60px;background: #DB3F66;border-radius: 4px;">Login</button>
                 </div>
             </div>
         </form>
     </main>
-
+		</div>
+    </div>
+</div>  
 </body>
-
 </html>
