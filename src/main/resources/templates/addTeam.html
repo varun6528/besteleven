@@ -89,23 +89,23 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                     </select>
                 </div>
                 <div class="d-flex pt-2 flex-row">
-                    <div class="ps-3 fs-5 fw-bold">
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;">
                         Match
-                        <input type="hidden" th:value="${matchId}" name="matchId">
-                        <span class="fw-bold" th:text="|${matchId} : |"></span>
+                        <input style="color: #f4f4f7;" type="hidden" th:value="${matchId}" name="matchId">
+                        <span style="color: #f4f4f7;" class="fw-bold" th:text="|${matchId} : |"></span>
                     </div>
-                    <div id="firstCountry" class="ps-3 fs-5 fw-bold" th:value="${firstTeam.country}"
+                    <div id="firstCountry" class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;" th:value="${firstTeam.country}"
                          th:text="${firstTeam.country}">
                     </div>
-                    <div class="ps-3 fs-5 fw-bold">
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;">
                         Vs
                     </div>
-                    <div class="ps-3 fs-5 fw-bold" th:value="${secondTeam.country}" th:text="${secondTeam.country}">
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;" th:value="${secondTeam.country}" th:text="${secondTeam.country}">
                     </div>
                 </div>
             </div>
             <div class="d-flex ps-3 pt-2 flex-row">
-                <div style="font-weight: 500;font-size: 18px;color: #0E0447;" class="px-3">
+                <div style="font-weight: 500;font-size: 18px;color: #f4f4f7;" class="px-3">
                     Give your verdict :
                 </div>
                 <select class="form-select form-select-sm fs-6 fw-bold" aria-label="Default select example"
