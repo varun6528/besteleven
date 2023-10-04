@@ -81,7 +81,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
         <div class="card mb-5" id="boxed" style="width: 70%; background:#faf8fa00;margin-top: 40px;">
             <div class="container mt-3 ms-2" style="margin-bottom: 0px;">
                 <h4 class="pt-4 ms-3 hidden" id="date" style="margin-right: 10%;">
-                    <span class="badge" style="color: #0E0447;" th:text="${match.date}"></span>
+                    <span class="badge" style="color: #fefeff;" th:text="${match.date}"></span>
                 </h4>
                 <div th:if="${playingEleven.id} != null">
                     <select hidden th:field="*{id}">
@@ -124,9 +124,9 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                         <th class="col text-center text-light" style="width: fit-content;">Player (Role)</th>
                     </tr>
                     <tbody style="border-width: 1;">
-                    <div th:each="i : ${#numbers.sequence( 1, 11)}">
+                    <div  th:each="i : ${#numbers.sequence( 1, 11)}">
                         <tr>
-                            <td class="text-center align-middle" th:text="${i}"></td>
+                            <td class="text-center align-middle" style="color: #f4f4f7;" th:text="${i}"></td>
                             <th class="text-center">
                                 <select class="playerSelect form-select form-select-sm align-middle"
                                         th:id="|player${i}|"
@@ -145,7 +145,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                 </table>
 				<div class="d-flex">
                 <div class="py-4 d-flex">
-                    <h4><span class="badge" style="font-weight: 500;font-size: 18px;color: #0E0447;">Select Impact Player :</span></h4>
+                    <h4><span class="badge" style="font-weight: 500;font-size: 18px;color: #f9f9fc;">Select Impact Player :</span></h4>
                     <select class="playerSelect form-select form-select-sm" id="manOfTheMatch"
                             style="width: 250px;" th:field="*{manOfTheMatchSelected}">
                         <option class="fs-6" value="0">Select player</option>

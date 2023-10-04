@@ -131,7 +131,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                     <select hidden th:field="*{scoreCards[__${itr.index}__].playerId}">
                         <option selected value="${player.id}" th:value="${player.id}"></option>
                     </select>
-                    <th class="text-center" style="color: #f3f0ef;"  th:text="${itr.index} + 1"></th>
+                    <th class="text-center" style="color: #0a0a0a;"  th:text="${itr.index} + 1"></th>
                     <td class="text-center" th:text="${player.country}"></td>
                     <td class="text-center" th:text="${player.name}"></td>
                     <td class="text-center" th:text="${player.type}"></td>
