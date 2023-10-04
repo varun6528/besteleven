@@ -127,7 +127,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
             </thead>
             <tbody>
             <div th:each="player,itr : ${allPlayers}">
-                <tr class="align-middle">
+                <tr class="align-middle" style="background: #f3f0ef;">
                     <select hidden th:field="*{scoreCards[__${itr.index}__].playerId}">
                         <option selected value="${player.id}" th:value="${player.id}"></option>
                     </select>
@@ -159,10 +159,10 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
     </div>
 	<div class="d-flex mt-3 mb-4 mx-5" style="justify-content: space-between;">
     <div class="d-flex justify-content-center">
-        <h4><span class="badge mt-2" style="color: #0E0447;">Man of the Match</span></h4>
+        <h4><span class="badge mt-2" style="color: #f4f3f8;">Impact Player</span></h4>
         <select class="form-select form-select-sm mx-2" id="manOfTheMatch"
                 style="width: fit-content;" th:field="*{momId}">
-            <option value="0">Select man of the match</option>
+            <option value="0">Select impact player</option>
             <option th:each="player : ${allPlayers}" th:value="${player.id}" th:text="${player.name}"></option>
         </select>
     </div>
