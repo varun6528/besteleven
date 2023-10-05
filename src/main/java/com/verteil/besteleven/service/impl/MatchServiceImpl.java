@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
+import static com.verteil.besteleven.util.TimeConversionUtil.checkDatePassed;
+
 @Service
 public class MatchServiceImpl implements MatchService {
 
@@ -39,12 +41,7 @@ public class MatchServiceImpl implements MatchService {
     }
 
     private void findMatchOver(List<Match> matches) {
-        matches.forEach(m -> m.setMatchOver(checkDatePassed(m.getDate())));
+        matches.forEach(m -> m.setMatchOver(checkDatePassed(m.getDate(), m.getTime())));
     }
 
-    private boolean checkDatePassed(LocalDate matchDate) {
-        LocalDateTime timeToCheck = LocalDateTime.now();
-        LocalDateTime matchTime = LocalDateTime.of(matchDate, LocalTime.of(8, 0));
-        return matchTime.isBefore(timeToCheck);
-    }
 }

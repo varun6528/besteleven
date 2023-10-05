@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Builder
@@ -21,6 +22,7 @@ public class Match {
     private String secondTeam;
     private MatchRound round;
     private String group;
+    private String time;
     @CsvIgnore
     private boolean matchOver;
 }

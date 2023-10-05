@@ -50,7 +50,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                 <ol>
                     <li class="p-1 mx-1">Predict match winner correctly and get 50 points</li>
                     <li class="p-1 mx-1">Select your team for every ODI game</li>
-                    <li class="p-1 mx-1">Time window to select your teams for the day closes by 10.30 am</li>
+                    <li class="p-1 mx-1">Time window to select your teams closes 1 hour before the match starts</li>
                     <li class="p-1 mx-1">You gain 50 bonus points if your team has atleast 4 batters, 1 allrounder, 1
                         wicketkeeper and 2 bowlers
                     </li>
@@ -73,6 +73,35 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
 	</div>
     <div class="card" style="width: 50%; background:#f8f9fb00;margin-top: 40px;">
         <span class="d-flex"><h2 class="card-text ps-2 pt-4 ms-4" style="font-weight: 600;font-size: 40px;color: #fcfcfd;"><strong>Verdict !!</strong></h2><span class="ps-2 pt-3" style='font-size:40px;'>&#128578;</span></span>
+        <div th:unless="${dailyLeaders.isEmpty()}" class="d-inline-flex justify-content-between">
+            <h4 class="pt-4 ms-4">
+                <span class="badge" style="font-weight: 400;font-size: 20px;color: #f0eff3;">Daily Leaders</span>
+            </h4>
+            <h4 class="ps-2 pt-4 ms-4 hidden" id = "date" style="margin-right: 10%;">
+                <span class="badge" style="font-weight: 400;font-size: 20px;color: #f0eff3;" th:text="${date}"></span>
+            </h4>
+        </div>
+        <div th:each="leaderByMatch : ${dailyLeaders}">
+            <div class="px-2 pt-2 ms-4 me-5 fs-5 fw-bold" style="color: #f0eff3" th:text="${leaderByMatch.key}"></div>
+            <div class="table-responsive px-2 pt-2 ms-4 me-5">
+                <table class="table table-hover table-striped">
+                    <thead style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;">
+                    <tr>
+                        <th class="col-2 text-center">Rank</th>
+                        <th class="col-5 text-center">Name</th>
+                        <th class="col-4 text-center">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody style="background: #ffffff; font-weight: 600; font-size: 14px;color:#FFF">
+                    <tr style="color:#000" th:each="user,iterStat : ${leaderByMatch.value}">
+                        <td class="text-center" th:text="${iterStat.count}"></td>
+                        <td class="text-center" th:text="${user.name}"></td>
+                        <td class="text-center" th:text="${user.score}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <h4 class="pt-4 ms-4">
             <span class="badge" style="font-weight: 400;font-size: 20px;color: #f2f1f5;">Overall Score</span>
         </h4>
@@ -94,35 +123,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                 </tbody>
             </table>
         </div>
-        <div th:unless="${dailyLeaders.isEmpty()}" class="d-inline-flex justify-content-between">
-            <h4 class="pt-4 ms-4">
-                <span class="badge" style="font-weight: 400;font-size: 20px;color: #f0eff3;">Daily Leaders</span>
-            </h4>
-            <h4 class="ps-2 pt-4 ms-4 hidden" id = "date" style="margin-right: 10%;">
-                <span class="badge" style="font-weight: 400;font-size: 20px;color: #0E0447;" th:text="${date}"></span>
-            </h4>
-        </div>
-        <div th:each="leaderByMatch : ${dailyLeaders}">
-            <div class="px-2 pt-2 ms-4 me-5 fs-5 fw-bold" th:text="${leaderByMatch.key}"></div>
-            <div class="table-responsive px-2 pt-2 ms-4 me-5">
-                <table class="table table-hover table-striped">
-                    <thead style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;">
-                    <tr>
-                        <th class="col-2 text-center">Rank</th>
-                        <th class="col-5 text-center">Name</th>
-                        <th class="col-4 text-center">Score</th>
-                    </tr>
-                    </thead>
-                    <tbody style="font-weight: 600;font-size: 14px;color:#FFF">
-                    <tr style="color:#000" th:each="user,iterStat : ${leaderByMatch.value}">
-                        <td class="text-center" th:text="${iterStat.count}"></td>
-                        <td class="text-center" th:text="${user.name}"></td>
-                        <td class="text-center" th:text="${user.score}"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
     </div>
 </div>
 <div class="py-5">

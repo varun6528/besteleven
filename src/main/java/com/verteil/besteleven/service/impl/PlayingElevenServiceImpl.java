@@ -1,6 +1,7 @@
 package com.verteil.besteleven.service.impl;
 
 import com.verteil.besteleven.model.*;
+import com.verteil.besteleven.repository.MatchRepository;
 import com.verteil.besteleven.repository.MatchSummaryRepository;
 import com.verteil.besteleven.repository.PlayerRespository;
 import com.verteil.besteleven.repository.PlayingElevenRepository;
@@ -16,18 +17,22 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static com.verteil.besteleven.util.TimeConversionUtil.checkDatePassed;
+
 @Slf4j
 @Service
 public class PlayingElevenServiceImpl implements PlayingElevenService {
 
     private PlayingElevenRepository playingElevenRepository;
     private MatchSummaryRepository matchSummaryRepository;
+    private MatchRepository matchRepository;
     private PlayerRespository playerRespository;
 
     @Autowired
-    public PlayingElevenServiceImpl(PlayingElevenRepository playingElevenRepository, MatchSummaryRepository matchSummaryRepository, PlayerRespository playerRespository) {
+    public PlayingElevenServiceImpl(PlayingElevenRepository playingElevenRepository, MatchSummaryRepository matchSummaryRepository, MatchRepository matchRepository, PlayerRespository playerRespository) {
         this.playingElevenRepository = playingElevenRepository;
         this.matchSummaryRepository = matchSummaryRepository;
+        this.matchRepository = matchRepository;
         this.playerRespository = playerRespository;
     }
 
@@ -39,7 +44,11 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
     @Override
     public void saveTeam(PlayingEleven playingEleven) {
         playingEleven.setSubmittedDate(LocalDate.now());
-        playingElevenRepository.save(playingEleven);
+        final var match = matchRepository.findById(playingEleven.getMatchId());
+        log.info("the team selected by {} is ::: {}", playingEleven.getSubmittedBy(), playingEleven);
+        if (!checkDatePassed(match.getDate(), match.getTime())) {
+            playingElevenRepository.save(playingEleven);
+        }
     }
 
     @Override
