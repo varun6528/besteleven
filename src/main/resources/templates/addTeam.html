@@ -123,10 +123,10 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                         <th class="col text-center text-light" style="width: fit-content;">No.</th>
                         <th class="col text-center text-light" style="width: fit-content;">Player (Role)</th>
                     </tr>
-                    <tbody style="border-width: 1;">
+                    <tbody style="background: #ffffff; border-width: 1;">
                     <div  th:each="i : ${#numbers.sequence( 1, 11)}">
                         <tr>
-                            <td class="text-center align-middle" style="color: #f4f4f7;" th:text="${i}"></td>
+                            <td class="text-center align-middle" th:text="${i}"></td>
                             <th class="text-center">
                                 <select class="playerSelect form-select form-select-sm align-middle"
                                         th:id="|player${i}|"

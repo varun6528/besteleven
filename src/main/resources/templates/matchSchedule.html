@@ -80,12 +80,12 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
 		</div>
 		<div class="d-flex">
 		<div style="text-align: center;">
-		<span style="font-weight: 600;font-size: 32px;color: #0E0447;" class="px-2 ms-2" th:unless="${user.admin}" th:text="${user.score}"></span>
-		<p th:unless="${user.admin}" class="card-text fs-5 ps-2 pt-3 ms-4 mb-0"><strong>Overall Score</strong></p>
+		<span style="font-weight: 600;font-size: 32px;color: #FFF;" class="px-2 ms-2" th:unless="${user.admin}" th:text="${user.score}"></span>
+		<p th:unless="${user.admin}" class="card-text fs-5 ps-2 pt-3 ms-4 mb-0" style="color:#FFF"><strong>Overall Score</strong></p>
 		</div>
 		<div style="text-align: center;">
-		<span th:unless="${user.admin}"><span th:if="${user.rank} != 0"><span class="px-2 ms-2" style="font-weight: 600;font-size: 32px;color: #0E0447;" th:text="${user.rank}"></span></span><span th:if="${user.rank} == 0"><span style="font-weight: 600;font-size: 32px;color: #0E0447;" class="px-2 ms-2" >-</span></span></span>
-		<p th:unless="${user.admin}" class="card-text fs-5 ps-2 pt-3 ms-4 mb-0"><strong>Overall Rank</strong></p>
+		<span th:unless="${user.admin}"><span th:if="${user.rank} != 0"><span class="px-2 ms-2" style="font-weight: 600;font-size: 32px;color: #FFF;" th:text="${user.rank}"></span></span><span th:if="${user.rank} == 0"><span style="font-weight: 600;font-size: 32px;color: #FFF;" class="px-2 ms-2" >-</span></span></span>
+		<p th:unless="${user.admin}" class="card-text fs-5 ps-2 pt-3 ms-4 mb-0" style="color:#FFF"><strong>Overall Rank</strong></p>
 		</div>            
 		</div>		
 		</div>
