@@ -102,28 +102,29 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                 </table>
             </div>
         </div>
-        <h4 class="pt-4 ms-4">
-            <span class="badge" style="font-weight: 400;font-size: 20px;color: #f2f1f5;">Overall Score</span>
-        </h4>
-        <div class="table-responsive px-2 pt-2 ms-4 me-5">
-            <table class="table table-hover table-striped">
-                <thead style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;">
-                <tr>
-                    <th class="col-2 text-center">Rank</th>
-                    <th class="col-5 text-center">Name</th>
-                    <th class="col-4 text-center">Score</th>
-                </tr>
-                </thead>
-                <tbody style="background: #ffffff;font-weight: 600;font-size: 14px;color:#FFF">
-                <tr style="color:#000" th:each="user,iterStat : ${usersOverall}">
-                    <td class="text-center" th:text="${iterStat.count}"></td>
-                    <td class="text-center" th:text="${user.name}"></td>
-                    <td class="text-center" th:text="${user.score}"></td>
-                </tr>
-                </tbody>
-            </table>
+        <div th:if="${isAdmin}">
+            <h4 class="pt-4 ms-4">
+                <span class="badge" style="font-weight: 400;font-size: 20px;color: #f2f1f5;">Overall Score</span>
+            </h4>
+            <div class="table-responsive px-2 pt-2 ms-4 me-5">
+                <table class="table table-hover table-striped">
+                    <thead style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;">
+                    <tr>
+                        <th class="col-2 text-center">Rank</th>
+                        <th class="col-5 text-center">Name</th>
+                        <th class="col-4 text-center">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody style="background: #ffffff;font-weight: 600;font-size: 14px;color:#FFF">
+                    <tr style="color:#000" th:each="user,iterStat : ${usersOverall}">
+                        <td class="text-center" th:text="${iterStat.count}"></td>
+                        <td class="text-center" th:text="${user.name}"></td>
+                        <td class="text-center" th:text="${user.score}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
     </div>
 </div>
 <div class="py-5">

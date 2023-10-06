@@ -7,6 +7,7 @@ import com.verteil.besteleven.service.PlayingElevenService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.verteil.besteleven.service.TeamService;
@@ -59,7 +60,15 @@ public class PlayingElevenController {
         model.addAttribute("allPlayers", players);
         model.addAttribute("match", match);
         model.addAttribute("user", user);
+        extractImpactPlayer(playingEleven, players)
+                .ifPresent(impactPlayer -> model.addAttribute("impactPlayer", impactPlayer));
         return "addTeam";
+    }
+
+    private Optional<Player> extractImpactPlayer(PlayingEleven playingEleven, List<Player> players) {
+        return players.stream()
+                .filter(player -> player.getId() == playingEleven.getManOfTheMatchSelected())
+                .findFirst();
     }
 
     private List<Player> fetchSelectedPlayers(PlayingEleven saved, List<Player> players) {
@@ -68,7 +77,16 @@ public class PlayingElevenController {
                 .collect(Collectors.toList());
         return players.stream()
                 .filter(player -> savedPlayerIds.contains(player.getId()))
+                .map(player -> updatePlayerDetails(player, saved.getPlayers()))
                 .collect(Collectors.toList());
+    }
+
+    private Player updatePlayerDetails(Player player, List<Player> savedPlayers) {
+        savedPlayers.stream()
+                .filter(savedPlayer -> Objects.equals(savedPlayer.getId(), player.getId()))
+                .findFirst()
+                .ifPresent(savedPlayer -> player.setMatchScore(savedPlayer.getMatchScore()));
+        return player;
     }
 
     @PostMapping("/saveTeam")

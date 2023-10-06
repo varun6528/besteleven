@@ -67,7 +67,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
     </div>
 </div>
 
-<form th:action="@{/saveTeam}" th:object="${playingEleven}" method="post">
+<form th:unless="${match.matchOver == true}" th:action="@{/saveTeam}" th:object="${playingEleven}" method="post">
     <div class="d-flex justify-content-center my-5">
 	    <div class="d-flex" style="height: fit-content;position: absolute;left: 15%;">
 		<a href="javascript:history.back()" style="text-decoration: none;color: #FFF;font-weight: 600;font-size: 18px;">
@@ -154,7 +154,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
                     </select>
                 </div>
                 <div class="d-flex justify-content-center py-3" style="margin-left: auto;">
-                    <input style="width: 260px;background: #DB3F66;" type="submit" th:unless="${match.matchOver == true}"
+                    <input style="width: 260px;background: #DB3F66;" type="submit"
                            onclick="return confirm('Are you sure?')" class="btn btn-primary"
                            value="Submit Team">
                 </div>
@@ -164,6 +164,94 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
     </div>
 </form>
 
+<div th:if="${match.matchOver == true}">
+    <div class="d-flex justify-content-center my-5">
+        <div class="d-flex" style="height: fit-content;position: absolute;left: 15%;">
+            <a href="javascript:history.back()"
+               style="text-decoration: none;color: #FFF;font-weight: 600;font-size: 18px;">
+                <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="20.2317" y1="9" x2="5.23169" y2="9" stroke="white" stroke-width="3"
+                          stroke-linecap="round"/>
+                    <line x1="2.23193" y1="8.87868" x2="8.80803" y2="2.30259" stroke="white" stroke-width="3"
+                          stroke-linecap="round"/>
+                    <line x1="2.12132" y1="8.84277" x2="8.69741" y2="15.4189" stroke="white" stroke-width="3"
+                          stroke-linecap="round"/>
+                </svg>
+                <span style="margin-left: 10px;">Back</span></a>
+        </div>
+
+        <div class="card mb-5" style="width: 70%; background:#faf8fa00;margin-top: 40px;">
+            <div class="container mt-3 ms-2" style="margin-bottom: 0px;">
+                <h4 class="pt-4 ms-3 hidden" style="margin-right: 10%;">
+                    <span class="badge" style="color: #fefeff;" th:text="${match.date}"></span>
+                </h4>
+                <div class="d-flex pt-2 flex-row">
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;">
+                        Match
+                        <input style="color: #f4f4f7;" type="hidden" th:value="${matchId}" name="matchId">
+                        <span style="color: #f4f4f7;" class="fw-bold" th:text="|${matchId} : |"></span>
+                    </div>
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;" th:value="${firstTeam.country}"
+                         th:text="${firstTeam.country}">
+                    </div>
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;">
+                        Vs
+                    </div>
+                    <div class="ps-3 fs-5 fw-bold" style="color: #f4f4f7;" th:value="${secondTeam.country}"
+                         th:text="${secondTeam.country}">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex ps-3 pt-2 flex-row">
+                <div style="font-weight: 500;font-size: 18px;color: #f4f4f7;" class="px-3"
+                     th:text="${playingEleven} != null AND ${playingEleven.winner} != null ? 'Winner Predicted : ' + ${playingEleven.winner} : 'Winner Predicted: -'">
+                </div>
+            </div>
+
+            <div class="table-responsive px-2 pt-4 ms-4 me-5" style="width: 90%;">
+                <table class="table  table-striped">
+                    <thead style="background: #503c88;color: #FFF;font-weight: 600;font-size: 14px;">
+                    <tr style="background-color: #503c887a;">
+                        <th class="col text-center text-light" style="width: fit-content;">No.</th>
+                        <th class="col text-center text-light" style="width: fit-content;">Player (Role)</th>
+                        <th class="col text-center text-light" style="width: fit-content;">Points</th>
+
+                    </tr>
+                    <tbody style="background: #ffffff; border-width: 1;">
+                    <div th:each="i : ${#numbers.sequence(1, 11)}">
+                        <tr>
+                            <td class="text-center align-middle" th:text="${i}"></td>
+                            <th class="text-center" th:text="${not #lists.isEmpty(selectedPlayers)} AND ${#lists.size(selectedPlayers)} >= ${i} AND *{selectedPlayers[__${i}-1__]} != null AND *{selectedPlayers[__${i}-1__].id} != null AND *{selectedPlayers[__${i}-1__].id} != 0
+                                    ? |*{selectedPlayers[__${i}-1__].name} (*{selectedPlayers[__${i}-1__].type}, *{selectedPlayers[__${i}-1__].country})| : '-'">
+                            </th>
+                            <th class="text-center" th:text="${not #lists.isEmpty(selectedPlayers)} AND ${#lists.size(selectedPlayers)} >= ${i} AND *{selectedPlayers[__${i}-1__]} != null AND *{selectedPlayers[__${i}-1__].id} != null AND *{selectedPlayers[__${i}-1__].id} != 0 AND *{selectedPlayers[__${i}-1__].matchScore} != null AND *{selectedPlayers[__${i}-1__].matchScore} != 0
+                                 ? |*{selectedPlayers[__${i}-1__].matchScore}| : '-' ">
+                            </th>
+                        </tr>
+                    </div>
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+            <div class="d-flex mx-4 px-2">
+                <div class="py-4 d-flex">
+                    <div class="badge fs-6 fw-bold text-wrap"
+                         style="width: 600px; background: #503c88; height: 2rem;" th:text="${impactPlayer} !=null AND ${impactPlayer.id} != null AND ${impactPlayer.id} != 0 ? 'Impact Player : ' + |${impactPlayer.name} (${impactPlayer.type}, ${impactPlayer.country})| : 'Impact Player : -'">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex mx-4 px-2">
+                <div class="py-2 d-flex">
+                    <div class="badge fs-4 fw-bold text-wrap"
+                         style="width: 300px; background: #503c88; height: 3rem;" th:text="${playingEleven} != null AND ${playingEleven.score} != null AND ${playingEleven.score} != 0 ? 'Points Scored : ' + ${playingEleven.score} : 'Points Scored : -'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

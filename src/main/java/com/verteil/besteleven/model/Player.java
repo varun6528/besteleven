@@ -16,4 +16,5 @@ public class Player {
     private String name;
     private PlayerType type;
     private String country;
+    private Integer matchScore;
 }

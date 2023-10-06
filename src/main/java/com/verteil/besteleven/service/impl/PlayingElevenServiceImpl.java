@@ -18,6 +18,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static com.verteil.besteleven.util.TimeConversionUtil.checkDatePassed;
+import static java.util.Objects.nonNull;
 
 @Slf4j
 @Service
@@ -83,8 +84,21 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
                 .stream()
                 .collect(Collectors.toMap(e -> e.getKey(), e -> calculateScore(playerScoreMap, e.getValue(), matchSummary)));
 
-        playingElevens.forEach(p -> p.setScore(userScoreMap.get(p.getSubmittedBy())));
+        playingElevens.forEach(p -> updatePlayingElevenScores(p, userScoreMap, playerScoreMap));
         playingElevenRepository.saveAll(playingElevens);
+    }
+
+    private void updatePlayingElevenScores(PlayingEleven playingEleven, Map<String, Integer> userScoreMap, Map<Integer, Integer> playerScoreMap) {
+        playingEleven.setScore(userScoreMap.get(playingEleven.getSubmittedBy()));
+        if (nonNull(playingEleven.getPlayers())) {
+            playingEleven.getPlayers().forEach(player -> {
+                if (playerScoreMap.containsKey(player.getId()) && nonNull(playerScoreMap.get(player.getId()))) {
+                    var matchScore = playingEleven.getManOfTheMatchSelected() == player.getId() ? 2 * playerScoreMap.get(player.getId()) :
+                            playerScoreMap.get(player.getId());
+                    player.setMatchScore(matchScore);
+                }
+            });
+        }
     }
 
     private int calculateScore(Map<Integer, Integer> playerScoreMap, PlayingEleven playingEleven, MatchSummary matchSummary) {
