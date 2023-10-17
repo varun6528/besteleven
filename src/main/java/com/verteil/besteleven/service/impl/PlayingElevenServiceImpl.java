@@ -13,12 +13,17 @@ import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static com.verteil.besteleven.util.TimeConversionUtil.checkDatePassed;
+import static java.util.Comparator.comparingInt;
 import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 @Slf4j
 @Service
@@ -48,8 +53,27 @@ public class PlayingElevenServiceImpl implements PlayingElevenService {
         final var match = matchRepository.findById(playingEleven.getMatchId());
         log.info("the team selected by {} is ::: {}", playingEleven.getSubmittedBy(), playingEleven);
         if (!checkDatePassed(match.getDate(), match.getTime())) {
+            playingEleven.setPlayers(filterMultipleSelectedPlayers(playingEleven.getPlayers()));
             playingElevenRepository.save(playingEleven);
         }
+    }
+
+    private List<Player> filterMultipleSelectedPlayers(List<Player> players) {
+        List<Integer> playersSelected = new ArrayList<>();
+        List<Player> filteredPlayers = new ArrayList<>();
+        for (var player : players) {
+            if (0 == player.getId()) {
+                filteredPlayers.add(player);
+            }
+            if (0 != player.getId() && !playersSelected.contains(player.getId())) {
+                playersSelected.add(player.getId());
+                filteredPlayers.add(player);
+            } else if (0 != player.getId()) {
+                player.setId(0);
+                filteredPlayers.add(player);
+            }
+        }
+        return filteredPlayers;
     }
 
     @Override
