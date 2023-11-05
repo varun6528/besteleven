@@ -51,15 +51,7 @@ public class UserServiceImpl implements UserService {
                             .getFirstTeam()
                             .concat(" vs ")
                             .concat(match.getSecondTeam());
-                    List<PlayingEleven> playingElevens = playingElevenRepository.findByMatchId(match.getId());
-                    List<User> users = playingElevens
-                            .stream()
-                            .sorted(Comparator.comparing(PlayingEleven::getScore))
-                            .map(this::createUser)
-                            .sorted(Comparator
-                                    .comparing(User::getScore)
-                                    .reversed())
-                            .collect(Collectors.toList());
+                    List<User> users = findLeadersByMatch(match.getId());
                     return Map.of(team, users);
                 })
                 .flatMap(map -> map
@@ -123,6 +115,19 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
         users.sort(Comparator.comparing(User::getScore).reversed());
         return users;
+    }
+
+    @Override
+    public List<User> findLeadersByMatch(int matchId) {
+        List<PlayingEleven> playingElevens = playingElevenRepository.findByMatchId(matchId);
+        return playingElevens
+                .stream()
+                .sorted(Comparator.comparing(PlayingEleven::getScore))
+                .map(this::createUser)
+                .sorted(Comparator
+                        .comparing(User::getScore)
+                        .reversed())
+                .collect(Collectors.toList());
     }
 
     private int calculateOverAllScore(List<PlayingEleven> playingElevens) {

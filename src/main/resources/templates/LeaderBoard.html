@@ -64,7 +64,7 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
 </div>
 <div class="d-flex justify-content-center mt-5">
     <div class="d-flex" style="height: fit-content;position: absolute;left: 25%;">
-		<a href="javascript:history.back()" style="text-decoration: none;color: #FFF;font-weight: 600;font-size: 18px;">
+		<a th:href="@{/user/landing}" style="text-decoration: none;color: #FFF;font-weight: 600;font-size: 18px;">
 		<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<line x1="20.2317" y1="9" x2="5.23169" y2="9" stroke="white" stroke-width="3" stroke-linecap="round"/>
 		<line x1="2.23193" y1="8.87868" x2="8.80803" y2="2.30259" stroke="white" stroke-width="3" stroke-linecap="round"/>
@@ -73,6 +73,18 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
 	</div>
     <div class="card" style="width: 50%; background:#f8f9fb00;margin-top: 40px;">
         <span class="d-flex"><h2 class="card-text ps-2 pt-4 ms-4" style="font-weight: 600;font-size: 40px;color: #fcfcfd;"><strong>Verdict !!</strong></h2><span class="ps-2 pt-3" style='font-size:40px;'>&#128578;</span></span>
+        <div th:if="${isAdmin} AND ${matches!=null and !matches.empty}" class="d-inline-flex justify-content-between">
+            <div class="dropdown pt-4 ms-4">
+                <button class="btn btn-secondary dropdown-toggle" style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Match wise leaders
+                </button>
+                <ul class="dropdown-menu scrollable-menu">
+                    <div th:each="match : ${matches}">
+                        <li><a class="dropdown-item" th:href="@{/user/score(matchId=${match.id})}" th:text="|${match.firstTeam}  V  ${match.secondTeam}|"></a></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
         <div th:unless="${dailyLeaders.isEmpty()}" class="d-inline-flex justify-content-between">
             <h4 class="pt-4 ms-4">
                 <span class="badge" style="font-weight: 400;font-size: 20px;color: #f0eff3;">Daily Leaders</span>
@@ -135,6 +147,11 @@ background-repeat: no-repeat; background-image: url('https://img.freepik.com/pre
         #date {
             display: none;
         }
+    }
+    .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
     }
 </style>
 </html>

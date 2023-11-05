@@ -1,0 +1,151 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Leader Board</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+body {
+    font-family: 'Open Sans';
+}
+
+    </style>
+</head>
+<body style="background-size: cover;
+background-repeat: no-repeat; background-image: url('https://img.freepik.com/premium-photo/futuristic-stadium-with-city-background_846334-102.jpg?w=740');">
+<nav class="navbar" style="background: #1F1F30;">
+    <div class="container-xl">
+        <!--        <a class="navbar-brand" th:href="@{/{userId}/home(userId=${user.id})}">-->
+        <a class="navbar-brand" th:href="@{/user/landing}">
+            <img class="justify-content-center"
+                 src="https://uploads-ssl.webflow.com/62b47b00dbb5f525acc9b2d0/62c3dfc54a8cc55393448ece_Artboard%2020%201.svg"
+                 alt=""
+                 width="150" height="30">
+        </a>
+        <div class="dropdown justify-content-center">
+            <ul class="nav" aria-labelledby="dropdownMenuButton2"
+                style="left:auto; right:0; margin-right:0">
+                <li style="color:rgba(255, 255, 255, 0.8);">
+                    <button style="color:rgba(255, 255, 255, 0.8); text-decoration: none;" class="btn"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal">Rules
+                    </button>
+                </li>
+                <li><a class="btn" style="color:rgba(255, 255, 255, 0.8); text-decoration: none;"
+                       th:href="@{/changePassword}">Change Password</a></li>
+                <li><a class="btn" style="color:#DB3F66; text-decoration: none;" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div style="background: #FFFFFF;box-shadow: 0px 11px 90px rgba(0, 0, 0, 0.15);border-radius: 6px;"
+             class="modal-content">
+            <div style="border:none" class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ol>
+                    <li class="p-1 mx-1">Predict match winner correctly and get 50 points</li>
+                    <li class="p-1 mx-1">Select your team for every ODI game</li>
+                    <li class="p-1 mx-1">Time window to select your teams closes 1 hour before the match starts</li>
+                    <li class="p-1 mx-1">You gain 50 bonus points if your team has atleast 4 batters, 1 allrounder, 1
+                        wicketkeeper and 2 bowlers
+                    </li>
+                    <li class="p-1 mx-1">Every run will earn you 1 point</li>
+                    <li class="p-1 mx-1">Every wicket wil earn you 25 points</li>
+                    <li class="p-1 mx-1">Impact player will have points doubled at the end of the match</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center mt-5">
+    <div class="d-flex" style="height: fit-content;position: absolute;left: 25%;">
+        <a th:href="@{/user/score}" style="text-decoration: none;color: #FFF;font-weight: 600;font-size: 18px;">
+            <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20.2317" y1="9" x2="5.23169" y2="9" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <line x1="2.23193" y1="8.87868" x2="8.80803" y2="2.30259" stroke="white" stroke-width="3"
+                      stroke-linecap="round"/>
+                <line x1="2.12132" y1="8.84277" x2="8.69741" y2="15.4189" stroke="white" stroke-width="3"
+                      stroke-linecap="round"/>
+            </svg>
+            <span style="margin-left: 10px;">Back</span></a>
+    </div>
+    <div class="card" style="width: 50%; background:#f8f9fb00;margin-top: 40px;">
+        <span class="d-flex"><h2 class="card-text ps-2 pt-4 ms-4"
+                                 style="font-weight: 600;font-size: 40px;color: #fcfcfd;"><strong>Verdict !!</strong></h2><span
+                class="ps-2 pt-3" style='font-size:40px;'>&#128578;</span></span>
+        <div class="d-inline-flex justify-content-between">
+            <div class="dropdown pt-4 ms-4">
+                <button class="btn btn-secondary dropdown-toggle"
+                        style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    Match wise leaders
+                </button>
+                <ul class="dropdown-menu scrollable-menu">
+                    <div th:each="match : ${matches}">
+                        <li><a class="dropdown-item" th:href="@{/user/score(matchId=${match.id})}"
+                               th:text="|${match.firstTeam}  V  ${match.secondTeam}|"></a></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="d-inline-flex justify-content-between">
+            <h4 class="pt-4 ms-4">
+                <span class="badge" style="font-weight: 400;font-size: 20px;color: #f0eff3;">Match Day Leaders</span>
+            </h4>
+            <h4 class="ps-2 pt-4 ms-4 hidden" id="date" style="margin-right: 10%;">
+                <span class="badge" style="font-weight: 400;font-size: 20px;color: #f0eff3;"
+                      th:text="${match.date}"></span>
+            </h4>
+        </div>
+
+        <div class="px-2 pt-2 ms-4 me-5 fs-5 fw-bold" style="color: #f0eff3"
+             th:text="|${match.firstTeam}  V  ${match.secondTeam}|"></div>
+        <div class="table-responsive px-2 pt-2 ms-4 me-5">
+            <table class="table table-hover table-striped">
+                <thead style="background: #503C88;color: #FFF;font-weight: 600;font-size: 14px;">
+                <tr>
+                    <th class="col-2 text-center">Rank</th>
+                    <th class="col-5 text-center">Name</th>
+                    <th class="col-4 text-center">Score</th>
+                </tr>
+                </thead>
+                <tbody style="background: #ffffff; font-weight: 600; font-size: 14px;color:#FFF">
+                <tr style="color:#000" th:each="user,iterStat : ${matchDayLeaders}">
+                    <td class="text-center" th:text="${iterStat.count}"></td>
+                    <td class="text-center" th:text="${user.name}"></td>
+                    <td class="text-center" th:text="${user.score}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="py-5">
+</div>
+</body>
+<style>
+    @media (max-width: 700px) {
+        #date {
+            display: none;
+        }
+    }
+    .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    }
+
+</style>
+</html>

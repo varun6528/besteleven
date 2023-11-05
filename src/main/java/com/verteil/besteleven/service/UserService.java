@@ -16,4 +16,6 @@ public interface UserService {
     User findOverAllUserScore(User user);
 
     List<User> findOverAllScore();
+
+    List<User> findLeadersByMatch(int matchId);
 }
